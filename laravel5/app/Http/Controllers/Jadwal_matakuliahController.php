@@ -24,4 +24,14 @@ class Jadwal_matakuliahController extends Controller
     	$jadwal_matakuliah->save();
     	return "Data Jadwal matakuliah telah disimpan";
 }
+public function jadwal_kulmhs() {
+    $dos = jadwal_matakuliah::all();  //untuk menampilkan semua data 
+    foreach ($dos as $doss) {
+        # code...
+    
+    echo "nama Mahasiswa :" .$doss->mahasiswa->nama;
+    echo "<br>";
+    echo " Berada Di Kelas :" .$doss->ruangan->id;
+}
+}
 }

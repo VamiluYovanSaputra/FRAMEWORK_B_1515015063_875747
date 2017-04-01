@@ -1,5 +1,9 @@
 <?php
 
+Route::get('mahasiswa_pengguna','MahasiswaController@mahasiswa');
+Route::get('mahasiswa_pengguna/semua', 'MahasiswaController@semua_mahasiswa');
+Route::get('mahasiswa/jadwal/ruangan', 'Jadwal_matakuliahController@jadwal_kulmhs');
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -25,6 +29,9 @@ Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
 
 Route::get('Dosen', 'DosenController@awal');
 Route::get('Dosen/tambah', 'DosenController@tambah');
+Route::get('dosen/semua', 'Dosen_matakuliahController@semua_dosen');
+Route::get('dosen/semua_matkul', 'Dosen_matakuliahController@semua_matkul');
+Route::get('dosen/keterangan', 'DosenController@ket_dosen');
 Route::get('Mahasiswa', 'MahasiswaController@awal');
 Route::get('Mahasiswa/tambah', 'MahasiswaController@tambah');
 
