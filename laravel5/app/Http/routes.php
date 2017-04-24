@@ -1,12 +1,12 @@
 <?php
-
-
-Route::get('mahasiswa_pengguna','mahasiswaController@mahasiswa');
+Route::get('/login','SesiController@form');
+Route::post('/login','SesiController@validasi');
+Route::get('/logout','SesiController@logout');
+Route::get('/','SesiController@index');
+Route::Group(['middleware'=>'AutentifikasiUser'],function()
+{
+	Route::get('mahasiswa_pengguna','mahasiswaController@mahasiswa');
 Route::get('_pengguna','penggunacontroller@tampil');
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('pengguna', 'PenggunaController@awal');
 Route::get('pengguna/tambah', 'PenggunaController@tambah');
@@ -63,3 +63,14 @@ Route::post('jadwal_matakuliah/simpan','jadwal_matakuliahcontroller@simpan');
 Route::get('jadwal_matakuliah/edit/{jadwal_matakuliah}','jadwal_matakuliahcontroller@edit');
 Route::post('jadwal_matakuliah/edit/{jadwal_matakuliah}','jadwal_matakuliahcontroller@update');
 Route::get('jadwal_matakuliah/hapus/{jadwal_matakuliah}','jadwal_matakuliahcontroller@hapus');
+
+});	
+
+
+
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+

@@ -62,7 +62,8 @@
 				<li><a href="{{url('ruangan')}}"> Ruangan</a></li>	
 				<li><a href="{{url('matakuliah')}}"> Matakuliah</a></li>	
 			</ul>	
-				</li>			
+				</li>
+				<li><a href="{{url('logout')}}">Logout			
 			</ul>	
 		</div><!--/.nav-collapse -->		
 			</div>	
@@ -75,6 +76,16 @@
 			{{Session::get('informasi')}}		
 				</div>
 			@endif
+             @if (count($errors) > 0)
+			<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $eror)
+						<li>{{ $eror }}</li>
+						@endforeach
+					</ul>
+			</div>
+			@endif
+
 			@yield('container')	
 		</div>
 		<nav class="navbar navbar-default navbar-fixed-bottom">
